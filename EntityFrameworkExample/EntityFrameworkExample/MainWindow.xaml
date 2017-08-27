@@ -1,0 +1,25 @@
+﻿<Window x:Class="EntityFrameworkExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:ViewModel="clr-namespace:EntityFrameworkExample.ViewModel"
+        xmlns:local="clr-namespace:EntityFrameworkExample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280">
+	<Window.DataContext>
+		<ViewModel:MainViewModel />
+	</Window.DataContext>
+
+	<Grid>
+		<Button Content="Add" HorizontalAlignment="Left" Margin="190,78,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddDepartmentCommand}"/>
+		<Button Content="Remove" HorizontalAlignment="Left" Margin="289,78,0,0" VerticalAlignment="Top" Width="75" Command="{Binding RemoveDepartmentCommand}"/>
+		<DataGrid HorizontalAlignment="Left" Height="320" Margin="70,132,0,0" VerticalAlignment="Top" Width="294" ItemsSource="{Binding Depts}" SelectedItem="{Binding SelectedDept}" />
+		<DataGrid HorizontalAlignment="Left" Height="320" Margin="467,132,0,0" VerticalAlignment="Top" Width="258" ItemsSource="{Binding SelectedDept.Employees}" SelectedItem="{Binding SelectedEmp}"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="65,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding DeptName}"/>
+		<Button Content="Add" HorizontalAlignment="Left" Margin="564,94,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddEmployeeCommand}"/>
+		<Button Content="Remove" HorizontalAlignment="Left" Margin="650,94,0,0" VerticalAlignment="Top" Width="75" Command="{Binding RemoveEmployeeCommand}"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="425,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding EmpName}"/>
+
+	</Grid>
+</Window>
