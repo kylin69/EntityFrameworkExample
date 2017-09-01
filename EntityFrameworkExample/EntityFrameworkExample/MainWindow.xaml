@@ -6,20 +6,20 @@
 		xmlns:ViewModel="clr-namespace:EntityFrameworkExample.ViewModel"
         xmlns:local="clr-namespace:EntityFrameworkExample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
+        Title="MainWindow" Height="433.6" Width="626.4">
 	<Window.DataContext>
 		<ViewModel:MainViewModel />
 	</Window.DataContext>
 
 	<Grid>
-		<Button Content="Add" HorizontalAlignment="Left" Margin="190,78,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddDepartmentCommand}"/>
-		<Button Content="Remove" HorizontalAlignment="Left" Margin="289,78,0,0" VerticalAlignment="Top" Width="75" Command="{Binding RemoveDepartmentCommand}"/>
-		<DataGrid HorizontalAlignment="Left" Height="320" Margin="70,132,0,0" VerticalAlignment="Top" Width="294" ItemsSource="{Binding Depts}" SelectedItem="{Binding SelectedDept}" />
-		<DataGrid HorizontalAlignment="Left" Height="320" Margin="467,132,0,0" VerticalAlignment="Top" Width="258" ItemsSource="{Binding SelectedDept.Employees}" SelectedItem="{Binding SelectedEmp}"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="65,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding DeptName}"/>
-		<Button Content="Add" HorizontalAlignment="Left" Margin="564,94,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddEmployeeCommand}"/>
-		<Button Content="Remove" HorizontalAlignment="Left" Margin="650,94,0,0" VerticalAlignment="Top" Width="75" Command="{Binding RemoveEmployeeCommand}"/>
-		<TextBox HorizontalAlignment="Left" Height="23" Margin="425,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding EmpName}"/>
+		<Button Content="Add" HorizontalAlignment="Left" Margin="147,14,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddDepartmentCommand}"/>
+		<Button Content="Remove" HorizontalAlignment="Left" Margin="227,14,0,0" VerticalAlignment="Top" Width="75" Command="{Binding RemoveDepartmentCommand}"/>
+		<DataGrid HorizontalAlignment="Left" Height="320" Margin="12,52,0,0" VerticalAlignment="Top" Width="294" ItemsSource="{Binding Depts}" SelectedItem="{Binding SelectedDept}" />
+		<DataGrid HorizontalAlignment="Left" Height="320" Margin="328,52,0,0" VerticalAlignment="Top" Width="280" ItemsSource="{Binding SelectedDept.Employees}" SelectedItem="{Binding SelectedEmp}"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="22,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding DeptName}"/>
+		<Button Content="Add" HorizontalAlignment="Left" Margin="453,19,0,0" VerticalAlignment="Top" Width="75" Command="{Binding AddEmployeeCommand}"/>
+		<Button Content="Remove" HorizontalAlignment="Left" Margin="533,19,0,0" VerticalAlignment="Top" Width="75" Command="{Binding RemoveEmployeeCommand}"/>
+		<TextBox HorizontalAlignment="Left" Height="23" Margin="328,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding EmpName}"/>
 
 	</Grid>
 </Window>

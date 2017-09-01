@@ -6,7 +6,7 @@ namespace EntityFrameworkExample.Model
 	public class Department : ObservableObject
 	{
 		public int DepartmentId { get; set; }
-		public string DeptName { get; set; }
+	    public string DeptName { get; set; }
 
 		public ObservableCollection<Employee> Employees
 		{

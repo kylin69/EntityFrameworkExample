@@ -1,9 +1,11 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Data.Entity;
 using EntityFrameworkExample.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
+
 
 namespace EntityFrameworkExample.ViewModel
 {
@@ -80,6 +82,8 @@ namespace EntityFrameworkExample.ViewModel
 
 			using (var db = new CompanyContext())
 			{
+				db.Departments.Load();
+				db.Employees.Load();
 				Depts = new ObservableCollection<Department>(db.Departments);
 			}
 		}
@@ -103,20 +107,14 @@ namespace EntityFrameworkExample.ViewModel
 		{
 			using (var db = new CompanyContext())
 			{
-				var Dept = new Department()
-				{
-					DeptName = DeptName
-				};
-
-				var a = SelectedDept;
-
+				var SelectedDept = this.SelectedDept;
 				var query = from item in db.Departments
-							where a.DepartmentId == item.DepartmentId
+							where SelectedDept.DepartmentId == item.DepartmentId
 							select item;
 
 				var c = query.First();
 
-				Depts.Remove(a);
+				Depts.Remove(SelectedDept);
 				db.Departments.Remove(c);
 				db.SaveChanges();
 			}
@@ -142,7 +140,17 @@ namespace EntityFrameworkExample.ViewModel
 		{
 			using (var db = new CompanyContext())
 			{
-			
+				var a = SelectedEmp;
+				var query = from item in db.Employees
+							where a.EmployeeId == item.EmployeeId
+							select item;
+
+				var c = query.First();
+
+				SelectedDept.Employees.Remove(a);
+				db.Employees.Remove(c);
+				db.SaveChanges();
+
 			}
 		}			
 	}
